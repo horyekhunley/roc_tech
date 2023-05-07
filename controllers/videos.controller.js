@@ -55,7 +55,7 @@ exports.find_all_videos = async (req, res) => {
 }
 
 // Find a single Video with a VideoId
-exports.find_one_Video = async (req, res) => {
+exports.find_one_video = async (req, res) => {
     try {
         let video = await Video.findByIdAndUpdate(req.params.videoId, {
             $inc: { views_count: 1 },
@@ -81,7 +81,7 @@ exports.find_one_Video = async (req, res) => {
 }
 
 // Update a Video identified by the VideoId in the request
-exports.update_a_Video = async (req, res) => {
+exports.update_a_video = async (req, res) => {
     try {
         const video = await Video.findById(req.params.VideoId)
         if (!video) {
@@ -104,7 +104,7 @@ exports.update_a_Video = async (req, res) => {
 }
 
 // Delete a Video with the specified Video in the request
-exports.delete_a_Video = async (req, res) => {
+exports.delete_a_video = async (req, res) => {
     try {
         const video = await Video.findById(req.params.VideoId)
         if (!video) {
@@ -126,7 +126,7 @@ exports.delete_a_Video = async (req, res) => {
     }
 }
 
-exports.find_top_stories = async (req, res) => {
+exports.find_top_videos = async (req, res) => {
     try {
         let results = await
             Video.find({})
@@ -142,7 +142,7 @@ exports.find_top_stories = async (req, res) => {
         })
     } catch (error) {
         res.status(500).json({
-            message: 'Unable to find top stories',
+            message: 'Unable to find top videos',
             success: false
         })
     }

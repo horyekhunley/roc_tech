@@ -1,4 +1,3 @@
-const Story = require('../models/story.models.js')
 const Comment = require('../models/comment.models.js')
 const paginate = require('express-paginate')
 
